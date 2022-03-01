@@ -85,9 +85,11 @@ class New(QWidget):
         a7 = self.lineEdit_7.text()
         con = sqlite3.connect('coffee.sqlite')
         cur = con.cursor()
+        
         if self.state == 1:
             cur.execute(f"""INSERT INTO coffee (userid,name,fire,status,info,price,v)
                     VALUES('{a1}', '{a2}', '{a3}', '{a4}', '{a5}', '{a6}', '{a7}')""")
+            
         elif self.state == 2:
             cur.execute(f"""DELETE from coffee WHERE userid LIKE '{a1}'""")
             cur.execute(f"""INSERT INTO coffee (userid,name,fire,status,info,price,v)
